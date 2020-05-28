@@ -16,112 +16,109 @@
 			$body=mysqli_real_escape_string($this->con,$body); //Allowed Single Quote (')' in String
 			$check_empty=preg_replace('/\s+/', '', $body); //Remove all Spaces
 
-			if($check_empty != "")
+			//Project Version 8 (For youtube link)
+			//For Single video
+			$body_array=preg_split("/\s+/", $body); //Split spaces
+
+			foreach($body_array as $key => $value) //Key stores index and value stores data
 			{
-				//Project Version 8 (For youtube link)
-				//For Single video
-				$body_array=preg_split("/\s+/", $body); //Split spaces
-
-				foreach($body_array as $key => $value) //Key stores index and value stores data
+				if(strpos($value, "www.youtube.com/watch?v=") !== false) //Compare with data type
 				{
-					if(strpos($value, "www.youtube.com/watch?v=") !== false) //Compare with data type
-					{
-						$link=preg_split("!&!", $value); //Split based on & (for playlist)
-						$value=preg_replace("!watch\?v=!", "embed/", $link[0]);
-						$value="<br> <iframe width=\'420\' height=\'315\' src=\'".$value."\'></iframe> <br>";
-						$body_array[$key]=$value;
-					}
+					$link=preg_split("!&!", $value); //Split based on & (for playlist)
+					$value=preg_replace("!watch\?v=!", "embed/", $link[0]);
+					$value="<br> <iframe width=\'420\' height=\'315\' src=\'".$value."\'></iframe> <br>";
+					$body_array[$key]=$value;
 				}
-				$body=implode(" ", $body_array); //Space seperated
+			}
+			$body=implode(" ", $body_array); //Space seperated
 
 
-				$date_added=date("Y-m-d H:i:s"); //Current Date and Time
-				$added_by=$this->user_obj->getUsername(); //Get Username
-				//If user is on Profile , Set user to none
-				if($user_to == $added_by)
+			$date_added=date("Y-m-d H:i:s"); //Current Date and Time
+			$added_by=$this->user_obj->getUsername(); //Get Username
+			//If user is on Profile , Set user to none
+			if($user_to == $added_by)
+			{
+				$user_to="none";
+			}
+
+			//Insert Post into Database
+			$query=mysqli_query($this->con,"INSERT INTO posts VALUES('','$body','$added_by','$user_to','$date_added','no','no','0','$imageName')");
+			$returned_id=mysqli_insert_id($this->con);
+
+			//Insert Notifications
+			if($user_to != 'none') 
+			{
+				$notification = new Notification($this->con, $added_by);
+				$notification->insertNotification($returned_id, $user_to, "profile_post");
+			}
+
+			//Update Post Count to user table
+			$num_post=$this->user_obj->getNumPost();
+			$num_post++;
+			$update_query=mysqli_query($this->con,"UPDATE users SET num_post='$num_post' WHERE username='$added_by'");
+
+			//Project Version 8
+			$stopWords= "a about above across after again against all almost alone along already
+						 also although always among am an and another any anybody anyone anything anywhere are 
+						 area areas around as ask asked asking asks at away b back backed backing backs be became
+						 because become becomes been before began behind being beings best better between big 
+						 both but by c came can cannot case cases certain certainly clear clearly come could
+						 d did differ different differently do does done down down downed downing downs during
+						 e each early either end ended ending ends enough even evenly ever every everybody
+						 everyone everything everywhere f face faces fact facts far felt few find finds first
+						 for four from full fully further furthered furthering furthers g gave general generally
+						 get gets give given gives go going good goods got great greater greatest group grouped
+						 grouping groups h had has have having he her here herself high high high higher
+					     highest him himself his how however i im if important in interest interested interesting
+						 interests into is it its itself j just k keep keeps kind knew know known knows
+						 large largely last later latest least less let lets like likely long longer
+						 longest m made make making man many may me member members men might more most
+						 mostly mr mrs much must my myself n necessary need needed needing needs never
+						 new new newer newest next no nobody non noone not nothing now nowhere number
+						 numbers o of off often old older oldest on once one only open opened opening
+						 opens or order ordered ordering orders other others our out over p part parted
+						 parting parts per perhaps place places point pointed pointing points possible
+						 present presented presenting presents problem problems put puts q quite r
+						 rather really right right room rooms s said same saw say says second seconds
+						 see seem seemed seeming seems sees several shall she should show showed
+						 showing shows side sides since small smaller smallest so some somebody
+						 someone something somewhere state states still still such sure t take
+						 taken than that the their them then there therefore these they thing
+						 things think thinks this those though thought thoughts three through
+				         thus to today together too took toward turn turned turning turns two
+						 u under until up upon us use used uses v very w want wanted wanting
+						 wants was way ways we well wells went were what when where whether
+						 which while who whole whose why will with within without work
+						 worked working works would x y year years yet you young younger
+						 youngest your yours z lol haha omg hey ill iframe wonder else like 
+			             hate sleepy reason for some little yes bye choose";
+
+			$stopWords=preg_split("/[\s,]+/", $stopWords); //Removes spaces
+			
+			$no_punctuation=preg_replace("/[^a-zA-Z 0-9]+/", "", $body); //Not letters and numbers
+
+			if(strpos($no_punctuation, "height") === false && strpos($no_punctuation, "width") === false
+				&& strpos($no_punctuation, "http") === false && strpos($no_punctuation, "youtube") === false)
+			{
+				//Convert users post (with punctuation removed) into array - split at white space
+				$keywords = preg_split("/[\s,]+/", $no_punctuation);
+
+				foreach($stopWords as $value) 
 				{
-					$user_to="none";
-				}
-
-				//Insert Post into Database
-				$query=mysqli_query($this->con,"INSERT INTO posts VALUES('','$body','$added_by','$user_to','$date_added','no','no','0','$imageName')");
-				$returned_id=mysqli_insert_id($this->con);
-
-				//Insert Notifications
-				if($user_to != 'none') 
-				{
-					$notification = new Notification($this->con, $added_by);
-					$notification->insertNotification($returned_id, $user_to, "profile_post");
-				}
-
-				//Update Post Count to user table
-				$num_post=$this->user_obj->getNumPost();
-				$num_post++;
-				$update_query=mysqli_query($this->con,"UPDATE users SET num_post='$num_post' WHERE username='$added_by'");
-
-				//Project Version 8
-				$stopWords= "a about above across after again against all almost alone along already
-							 also although always among am an and another any anybody anyone anything anywhere are 
-							 area areas around as ask asked asking asks at away b back backed backing backs be became
-							 because become becomes been before began behind being beings best better between big 
-							 both but by c came can cannot case cases certain certainly clear clearly come could
-							 d did differ different differently do does done down down downed downing downs during
-							 e each early either end ended ending ends enough even evenly ever every everybody
-							 everyone everything everywhere f face faces fact facts far felt few find finds first
-							 for four from full fully further furthered furthering furthers g gave general generally
-							 get gets give given gives go going good goods got great greater greatest group grouped
-							 grouping groups h had has have having he her here herself high high high higher
-						     highest him himself his how however i im if important in interest interested interesting
-							 interests into is it its itself j just k keep keeps kind knew know known knows
-							 large largely last later latest least less let lets like likely long longer
-							 longest m made make making man many may me member members men might more most
-							 mostly mr mrs much must my myself n necessary need needed needing needs never
-							 new new newer newest next no nobody non noone not nothing now nowhere number
-							 numbers o of off often old older oldest on once one only open opened opening
-							 opens or order ordered ordering orders other others our out over p part parted
-							 parting parts per perhaps place places point pointed pointing points possible
-							 present presented presenting presents problem problems put puts q quite r
-							 rather really right right room rooms s said same saw say says second seconds
-							 see seem seemed seeming seems sees several shall she should show showed
-							 showing shows side sides since small smaller smallest so some somebody
-							 someone something somewhere state states still still such sure t take
-							 taken than that the their them then there therefore these they thing
-							 things think thinks this those though thought thoughts three through
-					         thus to today together too took toward turn turned turning turns two
-							 u under until up upon us use used uses v very w want wanted wanting
-							 wants was way ways we well wells went were what when where whether
-							 which while who whole whose why will with within without work
-							 worked working works would x y year years yet you young younger
-							 youngest your yours z lol haha omg hey ill iframe wonder else like 
-				             hate sleepy reason for some little yes bye choose";
-
-				$stopWords=preg_split("/[\s,]+/", $stopWords); //Removes spaces
-				
-				$no_punctuation=preg_replace("/[^a-zA-Z 0-9]+/", "", $body); //Not letters and numbers
-
-				if(strpos($no_punctuation, "height") === false && strpos($no_punctuation, "width") === false
-					&& strpos($no_punctuation, "http") === false && strpos($no_punctuation, "youtube") === false)
-				{
-					//Convert users post (with punctuation removed) into array - split at white space
-					$keywords = preg_split("/[\s,]+/", $no_punctuation);
-
-					foreach($stopWords as $value) 
+					foreach($keywords as $key => $value2)
 					{
-						foreach($keywords as $key => $value2)
-						{
-							if(strtolower($value) == strtolower($value2))
-								$keywords[$key] = "";
-						}
-					}
-
-					foreach ($keywords as $value) 
-					{
-				    	$this->calculateTrend(ucfirst($value));
+						if(strtolower($value) == strtolower($value2))
+							$keywords[$key] = "";
 					}
 				}
 
+				foreach ($keywords as $value) 
+				{
+			    	$this->calculateTrend(ucfirst($value));
+				}
 			}
 		}
+
 
 		public function calculateTrend($term)
 		{
@@ -323,12 +320,12 @@
 									$delete_button
 								</div>
 								<div id='post_body'>
-									$body <br>
+									&nbsp; &nbsp; &nbsp; $body <br><br>
 										$imageDiv
 									<br><br>
 								</div>
 								<div class='newsfeedPostOptions'>
-									Comments($comment_check_num)&nbsp;&nbsp;&nbsp;
+									Comments($comment_check_num)&nbsp;&nbsp;&nbsp; 
 									<iframe src='like.php?post_id=$id' scrolling='no'>
 									</iframe>
 								</div>

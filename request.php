@@ -1,6 +1,7 @@
 <?php 
 	include('includes/header.php'); //Header
 ?>
+<link rel="stylesheet" href="requeststyle.css">
 <div class="main_column column" id="main_column">
 	<h4>Friend Request</h4>
 	<?php  

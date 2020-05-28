@@ -1,0 +1,23 @@
+.main_column {
+    float: right;
+    width: 68%;
+    z-index: -1;
+    min-height: 170px;
+}
+.column {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px #D3D3D3;
+    z-index: -1;
+    color: #555;
+	margin:100px;
+    margin-left: 48px;
+	-webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+border-radius: 5px;
+	border-radius: 5px;
+	border:2px solid #A973FE;
+}

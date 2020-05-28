@@ -50,7 +50,12 @@
     		padding-left: 0px;
 		}
 	</style>
-	<div class="profile_left">
+	<link rel="stylesheet" href="indestyle.css">
+	<!-- for on scroll animations -->
+      <link rel="stylesheet" href="animate.css">
+      <script src="wow.min.js"></script>
+	
+	<div class="profile_left animated shake infinite slower ">
 		<img src="<?php echo $user_array['profile_pic']; ?>">
 		<div class="profile_info">
 			<p><?php echo "Posts : ".$user_array['num_post']; ?></p>
@@ -95,7 +100,7 @@
 
 		?>
 	</div>
-	<div class="profile_main_column column">
+	<div class="profile_main_column column animated bounce infinite slower delay-2s">
 
 		<ul class="nav nav-tabs" id="profileTabs" role="tablist">
 		  <li class="nav-item">
@@ -135,9 +140,8 @@
 
 		</div>
 	
-	<!-- Modal -->
-<div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+	<div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog" role="document">
     <div class="modal-content">
 
       <div class="modal-header">

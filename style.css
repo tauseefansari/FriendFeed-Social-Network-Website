@@ -1,0 +1,346 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+:root{
+    --main-black:#1E202B;
+    --main-blue:#08AEEA;
+    --main-green:#2AF598;
+    --main-gradient: linear-gradient(to right,var(--main-blue),var(--main-green));
+}
+html{
+    
+}
+
+body{
+    width: 100%;
+    background-color: white;
+}
+h1{
+    
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--main-black);
+    
+}
+
+
+
+header{
+
+
+    background-image: url(images/header2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 100vh;
+    min-height: 700px;
+    width: 100%;
+   
+    position: absolute;
+    
+}
+.login-box{
+    width: 280px;
+    height: 240px;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.textbox{
+    width:100%;
+    
+    font-size: 20px;
+    padding: 4px 0;
+    margin: 40px 0;
+    border-radius: 5px;
+    border: 2px solid #A973FE;
+    
+    -webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+}
+.textbox input{
+    border :none;
+    outline: none;
+    background: none;
+    color:#A1A2A1;
+    
+    margin:0 15px;
+    
+}
+.passicon{
+
+   
+    width: 60%;
+    position: absolute;
+    right: 70px;
+    bottom: 60px;
+    top: 58%;
+   
+}
+.usericon{
+    width: 60%;
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
+    top: 45%;
+}
+
+
+
+.btnColor{
+    display: inline-block;
+    text-decoration: none;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color:white;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Arial Narrow,Arial,sans-serif;
+    font-variant: normal;
+    border-radius: 5px;
+    background: #437EFE;
+background: -webkit-linear-gradient(top, #437EFE, #8E9BFF);
+background: -moz-linear-gradient(top, #437EFE, #8E9BFF);
+background: linear-gradient(to bottom, #437EFE, #8E9BFF);
+
+        
+}
+input[type="submit"]{
+	color:white;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Arial Narrow,Arial,sans-serif;
+    font-variant: normal;
+	background:none;
+	cursor:pointer;
+	
+
+}
+.message{
+	font-family: Arial Narrow,Arial,sans-serif;
+	font-size: 20px; 
+	font-style: normal; 
+	font-variant: normal; 
+	font-weight: 600; 
+	line-height: 20px;
+	color:#009999;
+	
+	
+	
+	
+}
+.btnGroup{
+    position:relative;
+    z-index: 1;
+    top:48%;
+    left: 43%;
+    float: center;
+    
+
+
+}
+.callToAction{
+    text-align: center;
+    width: 30%;
+    
+    top:55%;
+    left:34%;
+    
+    position: relative; /**scroll bar reason*/
+    
+}
+.callToAction h1{
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-family: Arial Narrow,Arial,sans-serif;
+    font-variant: normal;
+    color: #A1A2A1;
+ 
+}
+
+
+
+
+.logo{
+    float: center;
+    padding: 8px;
+    margin-left: 16px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.logo a{
+    color:#009999;
+    text-transform: uppercase;
+     font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+    font-weight: 700;
+    font-size: 50px;
+    letter-spacing: 10px;
+    text-decoration: none;
+}
+.signup{
+	display:inline-block;
+	text-decoration:none;
+	color:#009999;
+	
+}
+/*-------1st responsive--------*/
+/*-------1st responsive--------*/
+@media only screen and (max-width: 1240px){
+	
+	.logo a {
+        top:60%;
+		
+    }
+	.login-box{
+		width:240px;
+	}
+}
+@media only screen and (max-width: 1100px){
+	
+	
+		
+    
+	.login-box{
+		width:240px;
+		left:51%;
+	}
+}
+@media only screen and (max-width: 900px){
+	
+	.logo a {
+        top:60%;
+			
+    }
+		
+    
+	.login-box{
+		width:200px;
+		left:52%;
+	}
+	.usericon{
+		left:34%;
+	}
+	.passicon{
+		left:34%;
+	}
+}
+@media only screen and (max-width: 700px){
+	
+	.logo a {
+        top:60%;
+		
+    }
+	header{
+
+
+    background-image: url(images/respheader.png);
+	}
+	.login-box{
+		width:180px;
+		left:52%;
+		top:62%;
+	}
+	.usericon{
+		left:30%;
+		top:50%;
+	}
+	.passicon{
+		left:30%;
+		top:62%;
+	}
+	.btnGroup{
+		top:53%;
+	}
+}
+@media only screen and (max-width: 650px){
+	
+	.logo a {
+        top:60%;
+		
+		
+    }
+	.login-box{
+		width:150px;
+		
+		left:50%;
+	}
+	.usericon{
+		display:none;
+	}
+	.passicon{
+		display:none;
+	}
+	.btnGroup{
+		left:38%;
+	}
+}
+@media only screen and (max-width: 500px){
+	
+	.logo a {
+        top:60%;
+		
+		
+    }
+	.login-box{
+		width:150px;
+		
+		left:50%;
+	}
+	.usericon{
+		display:none;
+	}
+	.passicon{
+		display:none;
+	}
+	.btnGroup{
+		left:38%;
+	}
+	.btnColor{
+		width:100px;
+	}
+}
+@media only screen and (max-width: 421px){
+	
+	.logo a {
+        font-size:40px;
+		
+		
+    }
+	.login-box{
+		width:100px;
+		
+		left:50%;
+	}
+	.textbox{
+		height:15px;
+		font-size:10px;
+	}
+	.usericon{
+		display:none;
+	}
+	.passicon{
+		display:none;
+	}
+	.btnGroup{
+		left:38%;
+	}
+	.btnColor{
+		width:100px;
+	}
+}
+
+
+
+
+
+

@@ -1,25 +1,22 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="indestyle.css">
 </head>
 <body>
-
 	<style type="text/css">
-	* {
-		font-family: Arial, Helvetica, Sans-serif;
-	}
-	body {
-		background-color: #fff;
-	}
-
-	form {
-		position: absolute;
-		top: 3px;
-	}
-
+		*{
+			font-family: Arial, helvetica, Sans-serif;
+		}
+		body{
+			background-color: #fff;
+		}
+		
+		form{
+			position: absolute;
+			top: 3px;
+		}
 	</style>
-
 	<?php  
 		require 'config/config.php';
 		include("includes/classes/User.php");

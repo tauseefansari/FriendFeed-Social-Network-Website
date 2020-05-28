@@ -58,54 +58,98 @@
 		}
 	}
 ?>
-	<div class="user_details column">
-		<a href="<?php echo $userLoggedIn; ?>"> <img src="<?php echo $user['profile_pic']; ?>"></a>
-		<div class="user_details_left_right">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="indestyle.css">
+	<!-- for on scroll animations -->
+      <link rel="stylesheet" href="animate.css">
+      <script src="wow.min.js"></script>
+	
+   
+  <title>Responsive Navigation bar with Icons</title>
+</head>
+<body>
+	<div class="container_side wow fadeInUp" data-wow-delay="1.2s">
+	<div class="user_details_column">
+		<div class="circle">
+		<a href="<?php echo $userLoggedIn; ?>" class="user_details">
+		<img src="<?php echo $user['profile_pic']; ?>"></a> <!--Name to be display-->
+		</div>
+		<div class="namedetails">
 		<a href="<?php echo $userLoggedIn; ?>">
 		<?php echo $user['first_name']." ".$user['last_name']; ?>
 		</a>
-		<br>
-		<?php echo "Posts: ".$user['num_post']."<br>"; 
-			  echo "Likes: ".$user['num_likes']; 
-			  ?>
+		</div>
+		<hr>
+		
+		
+		<div class="user_details_left_right">
+		<div class="post">
+		<?php echo "Posts: ".$user['num_post']. "&nbsp;"."&nbsp;"."&nbsp;"; 
+			  echo "Likes: ".$user['num_likes']; ?>
+		</div>	
+		<div class="search">
+				<form action="search.php" method="GET" name="search_form">
+					<input type="search" onkeyup="getLiveSearchUsers(this.value,'<?php echo $userLoggedIn; ?>')" name="q" placeholder=" Search..." autocomplete="off" id="search_text_input">
+
+					<div class="button_holder">
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</div>
+				</form>
+				
+				<div class="search_results">
+				</div>
+
+				<div class="search_results_footer_empty">
+				</div>
+		</div>
+		
+		
+		</div>
+		<hr class="new">
 	</div>
 </div>
-	<div class="main_column column">
+	<div class="main_column column wow fadeInUp" data-wow-delay="1.6s">
 		<form class="post_form" action="index.php" method="POST" enctype="multipart/form-data">
-			<input type="file" name="fileToUpload" id="fileToUpload"> <br><br>
-			<textarea name="post_text" id="post_text" placeholder="Write something here..."></textarea>
+		 <br><br>
+			<textarea name="post_text" id="post_text" placeholder="Write something here..."></textarea>	
+			<div class="container2">
+			
 			<input type="submit" name="post" id="post_button" value="Post">
-			<hr>
-		</form>
+			<div class="button1">
+			<input type="file" name="fileToUpload" id="fileToUpload"></div>
+			</div>
+			</form>
+			
+		
 
 		<div class="posts_area"></div>
 		<img id="loading" src="assets/images/icons/loading.gif" width="50" height="50">
-	</div>
 
+	</div> 
 	<!-- Project Version 8 (Display Trending Words) -->
-	<div class="user_details column">
-		<h4>Popular</h4>
-		
-		<div class="trends">
-			<?php  
-				$query=mysqli_query($con,"SELECT * FROM trends ORDER BY hits DESC LIMIT 9");
 
-				foreach($query as $row)
-				{
-					$word=$row['title'];
-					$word_dot=strlen($word)>=14 ? "..." : "";
+	
+</body>
 
-					$trimmed_word=str_split($word,14);
-					$trimmed_word=$trimmed_word[0];
+ <script type="text/javascript">
 
-					echo "<div style='padding: 1px;'>";
-					echo $trimmed_word.$word_dot;
-					echo "<br> </div>";
-				}
-			?>
-		</div>
-	</div>
+      //Scroll reveal animations
 
+      new WOW().init();
+
+      //Scroll activated background change
+      $(function() {
+            $(document).scroll(function() {
+                  var $nav = $(".nav");
+                  $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+            });
+      });
+	  </script>
 	<script>
 		var userLoggedIn='<?php echo $userLoggedIn; ?>';
 		$(document).ready(function ()
@@ -155,7 +199,4 @@
 			});
 		});
 	</script>
-	</div>
-</div>
-</body>
 </html>

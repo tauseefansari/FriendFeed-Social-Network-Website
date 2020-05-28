@@ -6,6 +6,12 @@ $(document).ready(function() {
 			$(this).animate({width: '400px'},500);
 		}
 	});
+	
+	$('#search_text_input').blur(function(){ //Search button animation
+		if(window.matchMedia("(min-width: 800px)").matches){
+			$(this).animate({width: '200px'},500);
+		}
+	});
 
 	$('.button_holder').on('click',function(){ //Submite search form on click event
 		document.search_form.submit();

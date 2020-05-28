@@ -1,0 +1,130 @@
+
+body{
+	line-height: 17px;
+	background:red;
+}
+
+
+.column{
+	background-color: red;
+	padding: 10px;
+	border: 1px solid #D3D3D3;
+	border-radius: 5px;
+	box-shadow: 2px 2px 1px #D3D3D3;
+	z-index: -1;
+}
+
+.main_column{
+	float: right;
+	width: 70%;
+	z-index: -1;
+	min-height: 160px;
+	background:red;
+}
+.post_form{
+	width: 100%;
+}
+.post_form textarea{
+	width: 81%;
+	height: 60px;
+	border-radius: 3px;
+	margin-right: 5px;
+	border:	1px solid #D3D3D3;
+	font-size: 14px;
+	padding: 5px;
+}
+textarea:focus{
+	outline: 0;
+}
+.post_form input[type="submit"]{
+	width: 11%;
+	height: 60px;
+	border: none;
+	border-radius: 3px;
+	background-color: #103142;
+	font-family: 'Bellota-BoldItalic',sans-serif;
+	color: #1E75CA;
+	text-shadow: #7386E2 0.5px 0.5px 0px;
+	font-size: 100%;
+	text-align: center;
+	position: absolute;
+	outline: 0;
+	margin: 0;
+}
+.post_form input[type="submit"]:active{
+	padding: 5px 4px 4px 5px;
+}
+.post_comment{
+	background-color: #D3D3D3;
+}
+.status_post{
+	width: 96%;
+	font-size: 15px;
+	padding: 0 5px;
+	min-height: 75px;
+	cursor: pointer;
+	background:red;
+}
+.post_profile_pic{
+	float: left;
+	margin-right: 7px;
+}
+.post_profile_pic img{
+	border-radius: 25px;
+}
+#comment_iframe{
+	width: 100%;
+	max-height: 250px;
+	margin-top: 5px;
+}
+.comment_section{
+	padding: 0 5px 5px 5px;
+}
+.comment_section img{
+	margin: 0 3px 3px 3px;
+    border-radius: 15px
+}
+#comment_form textarea{
+	border-color: #D3D3D3;
+	width: 85%;
+	color: #616060;
+	font-size: 15px;
+	margin: 3px 3px 3px 4px;
+}
+#comment_form input[type="submit"]{
+	border-color: #103142;
+	background-color: #103142;
+	border-radius: 5px;
+	color: #1E75CA;
+	position: absolute;
+	margin-top: 3px;
+	height: 40px;
+	width: 14%;
+	font-family: 'Bellota-BoldItalic',sans-serif;
+	text-shadow: #7386E2 0.5px 0.5px 0px;
+}
+.newsfeedPostOptions{
+	padding: 0px;
+	text-decoration: none;
+	color: #20AAE5;
+	border: none;
+}
+.newsfeedPostOptions iframe{
+	border: 0px;
+	height: 17px;
+	width: 120px;
+}
+.comment_like{
+	background-color: transparent;
+	border: none;
+	font-size: 15px;
+	color: #3498db;
+	padding: 0;
+	height: auto;
+	width: auto;
+	margin: 0;
+}
+.like_value{
+	display: inline;
+	font-size: 15px;
+}

@@ -1,0 +1,384 @@
+/*css of index commentstyle like*/
+
+body{
+	
+	
+}
+.container_side{
+	position:absolute;
+	width:250px;
+	height:700px;
+	margin:110px 1px;
+	padding:1px 0px;
+	background: #A973FE;
+background: -webkit-linear-gradient(left, #A973FE, #8282FF);
+background: -moz-linear-gradient(left, #A973FE, #8282FF);
+background: linear-gradient(to right, #A973FE, #8282FF);
+-webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+	left:1%;
+	top:0%;
+	display:flex;
+	
+	border-radius:10px;
+}
+.circle img{
+	right:70%;
+	top:20%;
+	width:40px;
+	height:40px;
+	border-radius:50%;
+	z-index:1;
+	background:red;
+	position:absolute;
+	/*background:url(images/user.png);*/
+border: 2px solid  #00ffcc;
+	
+}
+/*  img{
+	width:40px;
+	height:40px;
+	position:absolute;
+	
+	right:115%;
+} */
+.namedetails a{
+		position:absolute;
+		z-index:1;
+		text-decoration:none;
+		margin:15px 90px;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size:20px;
+		letter-spacing: 2px;
+		color:#fff;
+}
+.user_details{
+	z-index:1;
+	position:absolute;
+	padding:20px 7px;
+	margin:0px 60px;
+	text-decoration:none;
+	font-family: Source Sans Pro,sans-serif; 
+	font-size: 30px;
+font-style:normal;
+font-variant:normal;	
+	 letter-spacing: 5px;
+font-weight:100;
+	line-height: 20px;
+	color:#fff;
+	
+}
+
+ hr{
+	border: 2px solid  #A1A2A1;
+	width:80%;
+	position:absolute;
+	margin:70px 20px;
+	border-radius:2px;
+	
+	z-index:1;
+} 
+hr.new{
+	border-top: 2px solid #A1A2A1;
+	border-radius:2px;
+	margin:120px 20px;
+	z-index:1;
+	width:80%;
+}
+.post{
+	position:absolute;
+	margin:80px 20px;
+	z-index:1;
+	font-family:Source Sans Pro,sans-serif; 
+	font-size:22px;
+	font-weight: lighter; 
+	letter-spacing: 1px;
+	text-decoration:none;
+	color:#fff;
+}
+
+
+.container1{
+	position:absolute;
+	width:800px;
+	height:119px;
+	background:#fff;
+	border-radius:10px;
+	margin:110px 270px;
+	 border: 2px solid #A973FE;
+	-webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+display:flex;
+
+} 
+
+
+
+/* .container3{
+	position:absolute;
+	right:1%;
+	top:130%;
+	width:800px;
+	height:250px;
+	border-radius:1px;
+	background: #8E9BFF;
+background: -webkit-linear-gradient(top left, #8E9BFF, #7BA5FF);
+background: -moz-linear-gradient(top left, #8E9BFF, #7BA5FF);
+background: linear-gradient(to bottom right, #8E9BFF, #7BA5FF);
+	-webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+display:flex;
+} */
+
+.main_column{
+	position:absolute;
+	top:19%;
+	left:25%;
+	
+	width: 70%;
+	z-index: -1;
+	min-height: 160px;
+	-webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+	
+}
+.column{
+	background:#fff;
+	padding: 20px;
+	
+	border-radius: 5px;
+	 border: 2px solid #A973FE;
+	
+	z-index: -1;
+	-webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+}
+.post_form{
+	width: 100%;
+}
+.post_form textarea{
+	width: 81%;
+	height: 90px;
+	
+	margin-right: 5px;
+	border :none;
+    outline: none;
+    background: none;
+	color:#009999;
+	font-family: "Arial Narrow", Arial, sans-serif; 
+	font-size:15px;
+	font-weight: bold; 
+	text-align:center;
+	-webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+	border-radius: 5px;
+	 border:2px solid #009999;
+	
+}
+.overlay {
+  background-color: rgba(0,0,0,.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  display: none;
+}
+textarea:focus{
+	outline: 0;
+}
+/* .post_form input[type="submit"]{
+	width: 11%;
+	height: 60px;
+	position:relative;
+	right:5%;
+	z-index:1;
+} */
+.container2{
+	position:absolute;
+	width:400px;
+	height:42px;
+	margin:3px 360px;
+	
+	top:3%;
+	border-radius:1px;
+	background: #8E9BFF;
+background: -webkit-linear-gradient(top left, #8E9BFF, #7BA5FF);
+background: -moz-linear-gradient(top left, #8E9BFF, #7BA5FF);
+background: linear-gradient(to bottom right, #8E9BFF, #7BA5FF);
+	-webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+display:flex;
+}
+.container2 input[type="submit"]{
+	position:absolute;
+	background:none;
+	border:none;
+	outline:none;
+	cursor:pointer;
+	
+	margin:10px 350px;	
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:15px;
+	 font-weight: 400;
+	font-variant:normal;
+	color:#fff;
+}
+.post_form input[type="submit"]:active{
+	padding: 5px 4px 4px 5px;
+}
+.post_comment{
+	background-color: #fff;
+}
+.status_post{
+	width: 50%;
+	font-size: 15px;
+	padding: 50px 100px;
+	min-height: 75px;
+	cursor: pointer;
+	border:2px solid red;
+	margin:50px;
+	border-radius:10px;
+
+	-webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+-webkit-text-stroke:medium;
+}
+a{/*isko img ke saath align kar na align kiya to navbar pe effect hoga*/
+	color: #009999;
+	text-decoration: none;
+	
+	
+	position:relative;
+	
+
+	
+	
+}
+.post_profile_pic{
+	float: left;
+	position:relative;
+	margin-right:7px;
+
+	
+}
+.post_profile_pic img{
+	border-radius: 25px;
+	border: 2px solid  #00ffcc;
+	height:40px;
+	width:40px;
+}
+#comment_iframe{
+	width: 90%;
+	max-height: 250px;
+	margin-top: 5px;
+	 border: 2px solid #A1A2A1;
+	 border-radius:10px;
+	 background:#fff;
+	 -webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+}
+.comment_section{
+	padding: 0 px 5px 5px;
+	
+	color:#A1A2A1;
+	
+	font-family: "Arial Narrow", Arial, sans-serif; 
+	font-size:18px;
+	font-weight: lighter; 
+font-variant:narrow;	
+	
+}
+.comment_section img{
+	margin: 0 3px 3px 3px;
+ border-radius: 25px;
+	border: 2px solid  #00ffcc;
+	height:25px;
+	width:25px;
+
+}
+#comment_form textarea{
+	
+	width: 85%;
+	border :none;
+    outline: none;
+    background: none;
+	color:#009999;
+	-webkit-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+box-shadow: 2px 5px 18px 0px rgba(0,0,0,0.75);
+border-radius: 5px;
+	 border: 2px solid #009999;
+	
+	
+}
+#comment_form input[type="submit"]{ /*is ke place change kyu nhi ho rahe hai */
+	position:relative;
+	background: #A973FE;
+background: -webkit-linear-gradient(left, #A973FE, #8282FF);
+background: -moz-linear-gradient(left, #A973FE, #8282FF);
+background: linear-gradient(to right, #A973FE, #8282FF);
+border:none;
+	outline:none;
+	border-radius: 5px;
+	
+	height: 30px;
+	width: 14%;
+	color:#fff;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+	
+}
+
+
+ #post_body{
+	background:#fff;
+	font-size:16px;
+	color:#A1A2A1;
+	border-radius:15px;
+	padding:auto;
+	margin:30px 50px;
+	text-align:left;
+	border-bottom:2px solid #A973FE;
+	border-top:2px solid red;
+pointer-events:none;
+cursor:none;
+	
+	
+} 
+p{
+    margin-top: 100px;
+    margin-bottom: 1rem;
+}
+.newsfeedPostOptions{
+	padding: 0px;
+	text-decoration: none;
+	color: #1E202B;
+	border: none;
+	
+	
+}
+.newsfeedPostOptions iframe{
+	border: 0px;
+	height: 24px;
+	width: 125px;
+}
+ input[type="submit"]{
+	
+	background:red;
+background: -webkit-linear-gradient(left, #A973FE, #8282FF);
+background: -moz-linear-gradient(left, #A973FE, #8282FF);
+background: linear-gradient(to right, #A973FE, #8282FF);
+border:none;
+	outline:none;
+	border-radius: 5px;
+	color:#fff;
+	
+}
+.like_value{
+	display: inline;
+	font-size: 15px;
+}
+

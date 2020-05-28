@@ -21,7 +21,7 @@
 	}
 ?>
 
-<div class="main_column column" id="main_column">
+<div class="main_column column" id="search_column">
 	<?php  
 		if($query=="")
 			echo "You must enter something in the search box.";
@@ -108,7 +108,6 @@
 						<a href='" . $row['username'] ."'> " . $row['first_name'] . " " . $row['last_name'] . "
 						<p id='grey'> " . $row['username'] ."</p>
 						</a>
-						<br>
 						" . $mutual_friends ."<br>
 
 				</div>

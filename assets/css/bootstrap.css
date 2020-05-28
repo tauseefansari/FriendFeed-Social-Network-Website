@@ -5732,7 +5732,7 @@ a.close.disabled {
   z-index: 1050;
   display: none;
   width: 100%;
-  height: 100%;
+  height: 447%;
   overflow: hidden;
   outline: 0;
 }
@@ -5829,7 +5829,7 @@ a.close.disabled {
   outline: 0;
 }
 
-.modal-backdrop {
+/*.modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -5837,15 +5837,15 @@ a.close.disabled {
   width: 100vw;
   height: 100vh;
   background-color: #000;
-}
+}*/
 
 .modal-backdrop.fade {
-  opacity: 0;
+  /*opacity: 0;*/
 }
 
-.modal-backdrop.show {
+/*.modal-backdrop.show {
   opacity: 0.5;
-}
+}*/
 
 .modal-header {
   display: -ms-flexbox;

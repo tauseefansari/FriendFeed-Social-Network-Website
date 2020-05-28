@@ -28,7 +28,7 @@ if(isset($_FILES['image']['name'])){
 		$ImageType = @explode('/', $_FILES['image']['type']);
 		$type = $ImageType[1]; //file type	
 	//Set Upload directory    
-		$uploaddir = $_SERVER['DOCUMENT_ROOT'].'/Project/assets/images/profile_pics';
+		$uploaddir = $_SERVER['DOCUMENT_ROOT'].'/check2/assets/images/profile_pics';
 	//Set File name	
 		$file_temp_name = $profile_id.'_original.'.md5(time()).'n'.$type; //the temp file name
 		$fullpath = $uploaddir."/".$file_temp_name; // the temp file path
@@ -150,7 +150,8 @@ if (isset($_POST['x'])){
 														
 }// post x
 ?>
-<div id="Overlay" style=" width:100%; height:100%; border:0px #990000 solid; position:absolute; top:0px; left:0px; z-index:2000; display:none;"></div>
+<link rel="stylesheet" href="uploadcss.css">
+<div id="Overlay" style="/* width:100%; height:100%; */border:0px #990000 solid; position:absolute; top:0px; left:0px; z-index:2000; display:none;"></div>
 <div class="main_column column">
 
 
@@ -159,7 +160,7 @@ if (isset($_POST['x'])){
 	    <p><b> <?=$msg?> </b></p>
 	    
 	    <form action="upload.php" method="post"  enctype="multipart/form-data">
-	        Upload something<br /><br />
+	        <h4>Upload something</h4><br /><br />
 	        <input type="file" id="image" name="image" style="width:200px; height:30px; " /><br /><br />
 	        <input type="submit" value="Submit" style="width:85px; height:25px;" />
 	    </form><br /><br />
@@ -173,9 +174,9 @@ if (isset($_POST['x'])){
 	    	$('#Overlay').show();
 			$('#formExample').hide();
 	    </script>
-	    <div id="CroppingContainer" style="width:800px; max-height:600px; background-color:#FFF; margin-left: -200px; position:relative; overflow:hidden; border:2px #666 solid; z-index:2001; padding-bottom:0px;">  
+	    <div id="CroppingContainer" style="width:800px;max-height:900px; background-color:#FFF; margin-left: 100px; position:relative; overflow:hidden; border:2px #437EFE solid; z-index:2001; padding-bottom:0px;">  
 	    
-	        <div id="CroppingArea" style="width:500px; max-height:400px; position:relative; overflow:hidden; margin:40px 0px 40px 40px; border:2px #666 solid; float:left;">	
+	        <div id="CroppingArea" style="width:500px; max-height:900px; position:relative; overflow:hidden; margin:40px 0px 40px 40px; border:2px #666 solid; float:left;">	
 	            <img src="<?=$imgSrc?>" border="0" id="jcrop_target" style="border:0px #990000 solid; position:relative; margin:0px 0px 0px 0px; padding:0px; " />
 	        </div>  
 
@@ -206,7 +207,7 @@ if (isset($_POST['x'])){
 
 	        <div id="CropImageForm2" style="width:100px; height:30px; float:left; margin:10px 0px 0px 40px;" >  
 	            <form action="upload.php" method="post" onsubmit="return cancelCrop();">
-	                <input type="submit" value="Cancel Crop" style="width:100px; height:30px;"   />
+	                <input type="submit" value="Cancel Crop" style="width:150px; height:30px;"   />
 	            </form>
 	        </div>            
 	            

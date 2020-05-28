@@ -25,19 +25,28 @@
 		}
 	}
 ?>
-	<div class="user_details column">
+	<link rel="stylesheet"  href="indestyle.css">
+	<!-- for on scroll animations -->
+      <link rel="stylesheet" href="animate.css">
+      <script src="wow.min.js"></script>
+	  
+	<div class="user_details column animated slideInDown" id="details">
 		<a href="<?php echo $userLoggedIn; ?>"> <img src="<?php echo $user['profile_pic']; ?>"></a>
 		<div class="user_details_left_right">
+		<div class="namedetails" id="messdetails">
 		<a href="<?php echo $userLoggedIn; ?>">
 		<?php echo $user['first_name']." ".$user['last_name']; ?>
 		</a>
+		</div>
 		<br>
-		<?php echo "Posts: ".$user['num_post']."<br>"; 
-			  echo "Likes: ".$user['num_likes']; ?>
+		
+		 <?php #echo "Posts: ".$user['num_post']."<br>"; 
+			 # echo "Likes: ".$user['num_likes']; ?> 
+		
 	</div>
 </div>
 	
-	<div class="main_column column" id="main_column">
+	<div class="main_column column animated slideInRight" id="message_column">
 		<?php  
 			if($user_to != "new")
 			{
@@ -76,7 +85,7 @@
 			div.scrollTop=div.scrollHeight;
 		</script>
 
-		<div class="user_details column" id="conversations">
+		<div class="user_details column animated slideInLeft" id="conversations">
 			<h4>Conversations</h4>
 			<div class="loaded_conversation">
 				<?php echo $message_obj->getCanvas(); ?>
