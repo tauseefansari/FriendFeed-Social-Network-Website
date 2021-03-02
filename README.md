@@ -15,4 +15,4 @@ Social networking website like facebook. developed as a web project with AJAX fe
 ![](ss4.PNG)
 
 ## Hosted Website
-[FriendsFeed](http://friendfeedinp.rf.gd/) is simple and easy to use just do the registration and login to the profile
+[FriendsFeed](http://friendfeed.rf.gd/) is simple and easy to use just do the registration and login to the profile
